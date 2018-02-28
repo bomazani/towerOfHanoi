@@ -1,4 +1,5 @@
 var diskHold = "";
+let tempDisk;
 const winArray = [
     [1, 2, 3, 4],
     [0, 0, 0, 0],
@@ -53,7 +54,7 @@ function selectDisk(event) {
     let idNum = thisDisk.id;
     diskHold = idNum;
     thisDisk.remove();
-    thisDisk.removeEventListener();
+    tempDisk = thisDisk;
 }
 
 
@@ -61,10 +62,9 @@ function selectDisk(event) {
 function placeDisk(event) {
     let thisButton = event.target;
     // console.log(thisButton);
-    var newDisk = document.createElement("div");
-    newDisk.id = diskHold[0];
+    
     var parent = thisButton.parentElement;
-    parent.appendChild(newDisk);
+    parent.appendChild(tempDisk);
     diskHold = "";
     // let test=document.getElementById("rod2");
     // let wakamashi=test.lastElementChild;
